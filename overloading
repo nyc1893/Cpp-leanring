@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+void add(int a, int b);
+void add(double a, double b);
+int main()
+{
+    int a,b;
+
+    cout<<"input int number";
+    cin>>a;
+    cin>>b;
+    cout<<endl;
+    add(a,b);
+
+    double c,d;
+    cout<<"input double number";
+    cin>>c;
+    cin>>d;
+    add(c,d);
+
+    return 0;
+
+}
+
+void add(int a, int b)
+{
+    cout<<"int out"<<a+b<<endl;
+
+}
+
+void add(double a, double b)
+{
+    cout<<"double out"<<a+b<<endl;
+
+}
