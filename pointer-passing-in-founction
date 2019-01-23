@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+void add(int *a, int *b);
+void swap(int *a, int *b);
+int main()
+{
+    int a,b;
+    a =2;
+    b =3;
+    cout<<"a="<< a<<endl;
+    cout<<"b="<< b<<endl;
+    cout<<"input int number";
+
+    cout<<endl;
+    swap(&a,&b);
+    cout<<"a="<< a<<endl;
+    cout<<"b="<< b<<endl;
+    add(&a,&b);
+    return 0;
+
+}
+
+void add(int *a, int *b)
+{
+    cout<<"int out"<<*a+*b<<endl;
+
+}
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a=*b;
+    *b = temp;
+}
