@@ -1,0 +1,63 @@
+
+#include <iostream>
+#include <string>
+#include <fstream>
+
+class haha{
+public:
+    std:: string qq,ss;
+    std:: ofstream fileoutput;
+
+    haha();
+    ~haha();
+
+    void inputqq();
+    void inputss();
+    bool write();
+};
+
+haha::haha(){
+    fileoutput.open("test.txt",std::ios::app);
+}
+
+haha::~haha(){
+    fileoutput.close();
+
+}
+
+void haha::inputqq(){
+    std::getline(std::cin,qq);
+}
+
+void haha::inputss(){
+    std::getline(std::cin,ss);
+}
+
+bool haha::write(){
+    if (fileoutput.is_open()){
+        fileoutput<<qq<<"|"<<ss<<"\n";
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+int main()
+{
+    haha qt;
+    std::cout<<"enter a name:\n";
+    qt.inputqq();
+
+    std::cout<<"enter a address:\n";
+    qt.inputss();
+
+    if(qt.write()){
+        std::cout<<"writing success...";
+    }
+    else{
+        std::cout<<"writing failed...";
+        return 1;
+    }
+    return 0;
+}
