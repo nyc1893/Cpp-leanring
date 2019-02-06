@@ -1,0 +1,30 @@
+#include<fstream>
+
+#include<iostream>
+using namespace std;
+int main () {
+    ofstream out("out.txt");
+    if (out.is_open())
+   {
+        out << "This is a line.\n";
+        out << "This is another line.\n";
+        out.close();
+    }
+    cout<<"write done"<<endl;
+
+        char buffer[256];
+        ifstream in("out.txt");
+        if (! in.is_open())
+        { cout << "Error opening file"; exit (1); }
+        while (!in.eof() )
+        {
+            in.getline (buffer,100);
+            cout << buffer << endl;
+        }
+
+
+
+
+
+    return 0;
+}
