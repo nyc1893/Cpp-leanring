@@ -42,3 +42,50 @@ int main () {
 
     return 0;
 }
+
+
+
+
+//read out something from a txt 
+
+#include<fstream>
+#include <string>
+#include<iostream>
+using namespace std;
+struct Car
+{
+    int years;
+    string brand;
+    string model;
+    float price;   // Marks in Chemistry (Given)
+    bool avalible;
+
+};
+
+
+int main () {
+    const int SIZE=5;
+    Car p[5];
+    ifstream in("Cars.txt");
+
+    if (!in){
+    cerr << "File can't be opened! " << endl;
+    system("PAUSE");
+    exit(1);
+    }
+    for (int i=0; i < SIZE; i++)
+    {
+    in >> p[i].years >> p[i].brand
+    >>p[i].model >> p[i].price >> p[i].avalible ;
+    }
+
+    for(int i = 0;i<SIZE; i++){
+    cout <<"years:"<< p[i].years<<endl;
+    cout <<"brand:"<< p[i].brand<<endl;
+    cout <<"model:"<< p[i].model<<endl;
+    cout <<"price:"<< p[i].price<<endl;
+    cout <<"avalible:"<< p[i].avalible<<endl<<endl;
+    }
+    return 0;
+}
+
