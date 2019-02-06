@@ -55,8 +55,10 @@ using namespace std;
 struct Car
 {
     int years;
-    string brand;
-    string model;
+    string brand;  //char brand[10];
+    string model;   // char model[10];
+        
+        char model[10]
     float price;   // Marks in Chemistry (Given)
     bool avalible;
 
