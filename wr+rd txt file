@@ -12,6 +12,9 @@ int main () {
     }
     cout<<"write done"<<endl;
 
+
+// to read the whole line
+
         char buffer[256];
         ifstream in("out.txt");
         if (! in.is_open())
@@ -22,7 +25,18 @@ int main () {
             cout << buffer << endl;
         }
 
+// to read by the space
+        ifstream in("Cars.txt");
 
+        string str;
+        int count = 0;
+
+        while (in >> str)
+        {
+            cout << str << endl;
+            count++;
+        }
+        in.close();
 
 
 
