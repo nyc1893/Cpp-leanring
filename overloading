@@ -1,3 +1,37 @@
+// for operator
+class person
+{
+private:
+    int m_age;
+public:
+    person(int a)
+    {
+        this->m_age =a;
+    }
+    bool operator == (const person &ps)const;
+};
+
+bool person::operator == (const person &ps)const
+{
+    if(this->m_age==ps.m_age)
+        return true;
+    return false;
+}
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    person p1(10);
+    person p2(10);
+    if(p1 == p2)
+    {
+        cout<<"the age is equal";
+    }
+    return 0;
+}
+
+
 #include <iostream>
 using namespace std;
 void add(int a, int b);
