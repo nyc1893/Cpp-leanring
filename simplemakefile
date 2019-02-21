@@ -1,0 +1,26 @@
+1. print.h
+　　　　　　#include<stdio.h>
+　　　　　　void printhello();
+
+2. print.c
+　　　　　　#include"print.h"
+　　　　　　void printhello(){
+　　　　　　　　printf("Hello, world\n");
+　　　　　　}
+3. main.c
+　　　　　　#include "print.h"
+　　　　　　int main(void){
+　　　　　　　　printhello();
+　　　　　　　　return 0;
+　　　　　　}
+   
+   
+   
+   
+helloworld : main.o print.o       #helloword is our goal
+　　　　　　　　　　　　　　　　　    # main.o print.o our goal depend on
+    gcc -o helloworld main.o print.o  #shellcommand, have to be a tab
+mian.o : mian.c print.h
+    gcc -c main.c
+print.o : print.c print.h
+    gcc -c print.c
