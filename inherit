@@ -1,0 +1,89 @@
+#include<iostream>
+using namespace std;
+class Person
+{
+protected:
+    string m_name;
+public:
+    Person(string thename);
+    void intro();
+};
+
+class Teacher: public Person
+{
+protected:
+    // string m_name;
+    string m_class;
+public:
+    Teacher (string thename,string theclass);
+    void teach();
+};
+
+class Student: public Person
+{
+protected:
+    // string m_name;
+    string m_class;
+public:
+    Student (string thename,string theclass);
+    void study();
+};
+
+class TA: public Student,public Teacher
+{
+
+public:
+    TA (string name1, string name2, string class1,string class2);
+    void intro();
+};
+
+Person::Person(string thename){
+    m_name = thename;
+}
+void Person::intro(){
+    cout<<"Hello my name is "<<m_name<<endl;
+};
+
+Teacher::Teacher(string thename,string theclass):Person(thename)
+{
+    m_class = theclass;
+}
+void Teacher::teach(){
+
+    cout<< m_name<< " teach "<<m_class<<endl;
+};
+
+Student::Student(string thename,string theclass): Person(thename)
+{
+    m_class = theclass;
+}
+void Student::study(){
+
+    cout<< m_name<<" study in "<<m_class<<endl;
+};
+TA::TA (string name1, string name2, string class1,string class2):
+                Teacher( name1, class1),Student( name2, class2)
+
+{
+}
+
+
+void TA::intro()
+{
+    cout<<"Hello I am "<<Student::m_name<<endl;
+    // cout<<"Hello I study in "<<Student::m_class<<endl;
+}
+int main()
+{
+    Student s("mike","cs135");
+    Teacher t("tian","cs202");
+    TA ta("mt","tm","cs135","cs667");
+    s.intro();
+    s.study();
+    t.intro();
+    t.teach();
+    ta.intro();
+    ta.teach();
+    ta.study();
+    return 0;
+}
