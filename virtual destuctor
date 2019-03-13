@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Base{
+public:
+    Base(){}
+    virtual ~Base(){cout<< "Base destuctor!"<<endl;}
+    
+};
+
+class Derived: public Base
+{
+public:
+    Derived(){}
+    ~Derived(){cout<< "Derived destuctor!"<<endl;}
+};
+
+int main()
+{
+    Base *p = new Derived();
+    delete p;
+    return 0;
+}
