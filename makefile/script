@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 2.8.9)
+
+# set the project name
+project(my_project)
+
+# add the executable
+include_directories(include)
+
+set(MY_LIB_B_SOURCES src/my_lib_b/my_lib_b.cpp)
+
+add_library(my_lib_b ${MY_LIB_B_SOURCES})
+
+set(MYMODULEA_SOURCES src/MyModuleA/MyClassA.cpp
+					  src/MyModuleA/MyStructB.cpp
+)
+
+add_library(MyModuleA ${MYMODULEA_SOURCES})
+
+add_executable(my_project src/my_project_main.cpp)
+target_link_libraries(my_project my_lib_b MyModuleA)
+
+install(TARGETS my_project my_lib_b MyModuleA
+        RUNTIME DESTINATION ${PROJECT_SOUCE_DIR}/devel/bin
+        LIBRARY DESTINATION ${PROJECT_SOUCE_DIR}/devel/lib
+        ARCHIVE DESTINATION ${PROJECT_SOUCE_DIR}/devel/bin/static)
+
+install(DIRECTORY ${PROJECT_SOUCE_DIR}/include/
+		DESTINATION ${PROJECT_SOUCE_DIR}/devel/include
+		FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp"
+)
