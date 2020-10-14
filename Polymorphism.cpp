@@ -2,60 +2,60 @@
 using namespace std;
 
 
-class Student{
+class Person{
 private:
 
     int m_age;
 
 public:
     //声明构造函数
-    Student();
-    virtual void setage(int age);
+    Person();
+    void setage(int age);
     //
     void show();
 };
 
-Student::Student(){
+Person::Person(){
 
     m_age = 20;
 }
 
 
-void Student::setage(int age){
+void Person::setage(int age){
 
     m_age = age;
 }
 //定义普通成员函数
-void Student::show(){
+void Person::show(){
     cout<<"my age is"<<m_age<<endl;
 }
 
 
 
-class Child : public Student{
+class Student : public Person{
 private:
     int m_age;
 
 public:
 
-    Child();
+    Student();
 
 };
 
-Child::Child()
+Student::Student()
 {
     m_age = 20;
 }
 
 
-void oper(Student *stu){
-	stu->setage(0);
+void oper(Student *anyone){
+	anyone->setage(0);
 }
 
 int main(){
 
-    Child son;
-    Child &r = son;
+    Student stu;
+    Student &r = stu;
     r.show();
     oper(&r);
     r.show();
