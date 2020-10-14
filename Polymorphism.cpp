@@ -11,13 +11,13 @@ public:
     //声明构造函数
     Student();
     virtual void setage(int age);
-    //声明普通成员函数
+    //
     void show();
 };
 
 Student::Student(){
 
-    m_age = 0;
+    m_age = 20;
 }
 
 
@@ -44,14 +44,20 @@ public:
 
 Child::Child()
 {
-    m_age = 0;
+    m_age = 20;
 }
 
+
+void oper(Student *stu){
+	stu->setage(0);
+}
 
 int main(){
 
     Child son;
     Child &r = son;
+    r.show();
+    oper(&r);
     r.show();
     r.setage(25);
     r.show();
