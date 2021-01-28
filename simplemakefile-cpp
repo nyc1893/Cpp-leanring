@@ -1,0 +1,34 @@
+
+print.h
+
+
+void printhello();
+
+
+print.cpp
+
+#include <iostream>
+#include "print.h"
+using namespace std;
+void printhello()
+{
+    cout<<"Hello World\n";
+}
+
+main.cpp
+#include "print.h"
+int main()
+{
+    printhello();
+    return 0;
+}
+
+
+
+hello : main.o print.o       
+	g++ -o hello  main.o print.o 
+main.o : main.cpp print.h
+	g++ -c main.cpp
+print.o : print.cpp print.h
+	g++ -c print.cpp
+    
